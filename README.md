@@ -1,4 +1,8 @@
-# Python-Web-Scanner-2.0
+<p align="center">
+  <img src="https://github.com/Cr0mb/Python-Web-Scanner-2.0/assets/137664526/fecc5ec7-c37e-42cf-95eb-03d4a0ebe9ed" alt="image" width="500" />
+</p>
+
+# <p align="center">Python-Web-Scanner-2.0</p>
 This Python script allows you to check URLs for various properties and perform advanced scanning operations. It utilizes asyncio for concurrent operations and aiohttp for asynchronous HTTP requests. The script can check URL redirections, scan common ports, fetch sitemaps, detect proxy servers, retrieve IP geolocation data, and more.
 
 ## Features
@@ -30,4 +34,5 @@ This will run 1 instance; generating unlimited amount of addresses.
 
 The script outputs results to the console and saves detailed results in sites.txt, as well as subnet information to ip_list.txt.
 
-![image](https://github.com/Cr0mb/Python-Web-Scanner-2.0/assets/137664526/fecc5ec7-c37e-42cf-95eb-03d4a0ebe9ed)
+
+

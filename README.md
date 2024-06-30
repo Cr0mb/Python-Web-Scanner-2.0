@@ -5,6 +5,13 @@
 # <p align="center">Python-Web-Scanner-2.0</p>
 This Python script allows you to check URLs for various properties and perform advanced scanning operations. It utilizes asyncio for concurrent operations and aiohttp for asynchronous HTTP requests. The script can check URL redirections, scan common ports, fetch sitemaps, detect proxy servers, retrieve IP geolocation data, and more.
 
+<details>
+<summary>More Information (Click Me)</summary>
+
+You can understand more on this script at this repository, which is the script before I put it into automation, (in essence)
+https://github.com/Cr0mb/Python-Web-Scanner
+</details>
+
 ## Features
 
 - URL Redirection Check: Verify if a random IP redirects to an active URL.

@@ -20,11 +20,15 @@ https://github.com/Cr0mb/Python-Web-Scanner
 - Proxy Server Detection: Identify if an IP and port combination functions as a proxy.
 - IP Geolocation: Retrieve geographical and ISP information for discovered IPs.
 - Subnet Discovery: Use Nmap to identify other IPs in the same subnet.
-
++ Added function that reads IP addresses from ip_list.txt, sorts them, and writes them back to the file.
+  After new subnet IPs are added, the sort_ips() function is called to ensure the IPs are sorted.
 # Requirements
 - Python 3.7+
 ```
 pip install aiohttp asyncio argparse colorama
+```
+```
+sudo apt-get install nmap
 ```
 
 ## Argument options

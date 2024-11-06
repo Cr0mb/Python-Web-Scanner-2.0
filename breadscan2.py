@@ -15,6 +15,21 @@ init()
 def generate_random_ip():
     return f"{random.randint(1, 255)}.{random.randint(1, 255)}.{random.randint(1, 255)}.{random.randint(1, 255)}"
 
+# Function to sort IP addresses in numerical order
+def sort_ips():
+    with open('ip_list.txt', 'r') as file:
+        ip_addresses = file.readlines()
+
+    # Strip any extra spaces or newline characters
+    ip_addresses = [ip.strip() for ip in ip_addresses]
+
+    # Sort the IP addresses
+    ip_addresses.sort(key=lambda ip: tuple(map(int, ip.split('.'))))
+
+    with open('ip_list.txt', 'w') as file:
+        for ip in ip_addresses:
+            file.write(f"{ip}\n")
+
 async def check_url(session, url):
     try:
         async with session.head(url, allow_redirects=True, timeout=5) as response:
@@ -88,7 +103,6 @@ async def check_proxy(session, ip_address, port):
     except:
         return False
 
-
 async def run_instance(num_addresses, results_queue, session):
     scanned_count = 0
     while True:
@@ -128,6 +142,8 @@ async def run_instance(num_addresses, results_queue, session):
                             with open("ip_list.txt", "a") as ip_list_file:
                                 for subnet_ip in subnet_ips:
                                     ip_list_file.write(f"{subnet_ip}\n")
+                            # Sort the IP addresses after adding the new ones
+                            sort_ips()
                             result += f"{Fore.CYAN}Subnets found: {subnet_ips}{Style.RESET_ALL}\n"
                         else:
                             result += f"{Fore.YELLOW}No subnets found.{Style.RESET_ALL}\n"
@@ -176,9 +192,8 @@ async def main():
             file.write("Scan Results:\n\n")
             while not results_queue.empty():
                 result = await results_queue.get()
-                if "is not active" not in result:
-                    clean_result = re.sub(r"\x1b\[[0-9;]*m", "", result)
-                    file.write(clean_result)
+                if "Proxy" in result:
+                    file.write(result)
     except Exception as e:
         print(f"Error writing to file: {e}")
 
